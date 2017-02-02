@@ -1,6 +1,6 @@
 import tensorflow as tf
 
-# tf graph input
+# TF graph input
 a = tf.placeholder(tf.int16)
 b = tf.placeholder(tf.int16)
 

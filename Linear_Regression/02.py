@@ -1,11 +1,14 @@
 import tensorflow as tf
 
+# Training data
 x_data = [1, 2, 3]
 y_data = [1, 2, 3]
 
+# Initialization of parameters to be optimized
 W = tf.Variable(tf.random_uniform([1], -1.0, 1.0))
 b = tf.Variable(tf.random_uniform([1], -1.0, 1.0))
 
+# Placeholder for the training data
 X = tf.placeholder(tf.float32)
 Y = tf.placeholder(tf.float32)
 
