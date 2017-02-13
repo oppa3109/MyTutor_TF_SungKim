@@ -37,7 +37,7 @@ with tf.Session() as sess:
             print step, sess.run(cost, feed_dict={X:x_data, Y:y_data}), sess.run(W)
 
 # inference
-    print('--------------------')
+    print('---------------------')
     a = sess.run(hypothesis, feed_dict={X:[[1, 11, 7]]})
     print a, sess.run(tf.arg_max(a, 1))
 
