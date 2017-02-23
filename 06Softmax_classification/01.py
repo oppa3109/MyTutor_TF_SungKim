@@ -38,6 +38,7 @@ with tf.Session() as sess:
 
 # inference
     print('---------------------')
+    print('Test & one-hot encoding')
     a = sess.run(hypothesis, feed_dict={X:[[1, 11, 7]]})
     print a, sess.run(tf.arg_max(a, 1))
 
@@ -49,4 +50,3 @@ with tf.Session() as sess:
 
     all = sess.run(hypothesis, feed_dict={X:[[1, 11, 7], [1, 3, 4], [1, 1, 0]]})
     print all, sess.run(tf.arg_max(all, 1))
-
