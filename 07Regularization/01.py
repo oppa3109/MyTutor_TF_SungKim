@@ -67,7 +67,7 @@ with tf.Session() as sess:
     plt.imshow(mnist.test.images[r:r+1].reshape(28, 28), cmap='Greys', interpolation='nearest')
     plt.show()
 
-#--- OK in python not OK in docker
+#--- OK in python, not OK in docker, partially OK in virtualenv
 X = np.linspace(-np.pi, np.pi, 256, endpoint=True)
 C,S = np.cos(X), np.sin(X)
 plt.plot(X,C)
