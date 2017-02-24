@@ -29,7 +29,8 @@ cost = tf.reduce_mean(-tf.reduce_sum(y * tf.log(hypothesis), reduction_indices=1
 optimizer = tf.train.GradientDescentOptimizer(learning_rate).minimize(cost)
 
 # Initialize
-init = tf.initialize_all_variables()
+# init = tf.initialize_all_variables()
+init = tf.global_variables_initializer()
 
 with tf.Session() as sess:
     sess.run(init)
@@ -66,12 +67,8 @@ with tf.Session() as sess:
     plt.imshow(mnist.test.images[r:r+1].reshape(28, 28), cmap='Greys', interpolation='nearest')
     plt.show()
 
-'''
 #--- OK in python not OK in docker
-import matplotlib.pyplot as plt
-import numpy as np
 X = np.linspace(-np.pi, np.pi, 256, endpoint=True)
 C,S = np.cos(X), np.sin(X)
 plt.plot(X,C)
 plt.show()
-'''
