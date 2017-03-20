@@ -5,19 +5,20 @@ import matplotlib.pyplot as plt
 X = [1., 2., 3.]
 Y = [1., 2., 3.]
 
-m = n_samples = len(X)
-
 # Set model weights
 W = tf.placeholder(tf.float32)
 
 # Construct a linear hypothesis: H(x) = Wx
-hypothesis = tf.mul(X, W)
+hypothesis = X * W
 
 # Cost function: cost(W) = 1/m * sum(H(x) - y)^2
-cost = tf.reduce_sum(tf.pow(hypothesis - Y, 2)) / m
+#m = n_samples = len(X)
+#cost = tf.reduce_sum(tf.pow(hypothesis - Y, 2)) / m
+cost = tf.reduce_mean(tf.square(hypothesis - Y))
 
 # Initializing the variables
-init = tf.initialize_all_variables()
+#init = tf.initialize_all_variables()
+init = tf.global_variables_initializer()
 
 # For graphs
 W_val = []
@@ -28,9 +29,11 @@ sess = tf.Session()
 sess.run(init)
 
 for i in range(-30, 50):
-    print i * 0.1, sess.run(cost, feed_dict={W: i * 0.1})
-    W_val.append(i * 0.1)
-    cost_val.append(sess.run(cost, feed_dict={W: i * 0.1}))
+    feed_W = i * 0.1
+    curr_cost, curr_W = sess.run([cost, W], feed_dict={W: feed_W})
+    print feed_W, curr_cost
+    W_val.append(curr_W)
+    cost_val.append(curr_cost)
 
 # Graph display
 plt.plot(W_val, cost_val, 'ro')
