@@ -4,3 +4,4 @@ This project is based on the followings:
 
 1. http://hunkim.github.io/ml/
 2. https://github.com/golbin/TensorFlow-ML-Exercises
+3. https://github.com/hunkim/DeepLearningZeroToAll
