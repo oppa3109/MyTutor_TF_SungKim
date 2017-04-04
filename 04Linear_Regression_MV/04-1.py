@@ -28,8 +28,8 @@ feed = {X: x_data, Y: y_data}
 for step in range(2001):
     cost_val, hy_val, _ = sess.run([cost, hypothesis, train], feed_dict=feed)
     if step % 10 == 0:
-        print (step, "Cost: ", cost_val, "\nPrediction\n", hy_val)
+        print step, "\nCost: ", cost_val, "\nPrediction :\n", hy_val
 
-print("Your score will be ", sess.run(hypothesis, feed_dict={X: [[100, 70, 101]]}))
+print "\nYour score will be ", sess.run(hypothesis, feed_dict={X: [[100, 70, 101]]})
 # not [100, 70, 101], but [[100, 70, 101]]
-print("Other scores will be ", sess.run(hypothesis, feed_dict={X: [[60, 70, 110], [90, 100, 80]]}))
+print "Other scores will be ", sess.run(hypothesis, feed_dict={X: [[60, 70, 110], [90, 100, 80]]})
